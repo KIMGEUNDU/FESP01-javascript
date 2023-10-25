@@ -15,7 +15,7 @@ printArr(colorArr);
 // 유사배열객체
 //  - length 속성 추가
 //  - 0부터 시작해서 1씩 증가하는 속성 추가
-var arr2 = {
+var arr = {
   0: 'orange',
   1: 'yellow',
   2: 'green',
@@ -24,40 +24,40 @@ var arr2 = {
   push: function (elem) {
     // 마지막 인덱스에 지정한 element를 추가
     // length를 1 증가시킨다.
-    arr2[arr2.length] = elem;
-    arr2.length++;
+    this[this.length] = elem;
+    this.length++;
   },
 
   shift: function () {
     // 첫번째 요소를 삭제하고 반환한다.
     // length를 1 감소시킨다.
-    var first = arr2[0];
-    for (var i = 0; i < arr2.length - 1; i++) {
-      arr2[i] = arr2[i + 1];
+    var first = this[0];
+    for (var i = 0; i < this.length - 1; i++) {
+      this[i] = this[i + 1];
     }
-    arr2.length--;
-    delete arr2[arr2.length];
+    this.length--;
+    delete this[this.length];
     return first;
   },
 
   pop: function () {
     // 마지막 요소를 삭제하고 반환한다.
     // length를 1 감소시킨다.
-    var last = arr2[arr2.length - 1];
-    arr2.length--;
-    delete arr2[arr2.length];
+    var last = this[this.length - 1];
+    this.length--;
+    delete this[arr.length];
     return last;
   },
 };
 
-arr2.push('black');
-arr2.push('white');
+arr.push('black');
+arr.push('white');
 
-console.log(arr2.shift());
-console.log(arr2.pop());
+console.log(arr.shift());
+console.log(arr.pop());
 
-printArr(arr2);
-console.log(arr2);
+printArr(arr);
+console.log(arr);
 // 0 orange
 // 1 yellow
 // 2 green
