@@ -1,6 +1,6 @@
 // 구조 분해 할당
 var colors = ['yellow', 'green', 'blue'];
-var [one, two, three, four] = colors;
+var [one, two, three, four = 'red'] = colors;
 
 console.log(one);
 console.log(two);
@@ -15,10 +15,10 @@ console.log(four); //undefined
 // 구조분해 후
 // const [count, setCount] = useState(0);
 
-var kim = { userName: '김철수', userAge: 35 };
+// var kim = { userName: '김철수', userAge: 35 };
 // var { userName, userAge: age } = kim;
 // console.log(userName);
-console.log(age);
+// console.log(age);
 
 // 선언된 변수에 적용
 var first, second;
@@ -29,12 +29,28 @@ console.log(second);
 console.log(first, second);
 
 // 기본값 할당(undefined 대체)
+// var { userName, userAge } = { userName: '이용복', userAge: '24' };
+var { yourName, userAge = 24 } = { yourName: '이용복' };
+
+console.log(yourName, userAge);
 
 // 변수명 변경과 기본값 할당
+// var { userName: accountName = '게스트', userAge: age = 24 } = {
+//   userAge: '30',
+// };
+// console.log(accountName, age);
 
 // 변수값 교환
+var a = 100;
+var b = 200;
+var temp = a;
+a = b;
+b = temp;
+console.log(a, b);
 
 // 변수값 교환(구조 분해 할당)
+[a, b] = [b, a];
+console.log(a, b);
 
 // 복합 객체에서 사용
 var userList = [
@@ -55,3 +71,15 @@ var userList = [
 ];
 
 // 이름과 코스명만 출력
+// 기본적으로 꺼내는 방법
+// for (var elem of userList) {
+//   console.log(elem.name, elem.course.name);
+// }
+
+// 구조분해할당
+for (var {
+  name,
+  course: { name: courseName },
+} of userList) {
+  console.log(name, courseName);
+}
