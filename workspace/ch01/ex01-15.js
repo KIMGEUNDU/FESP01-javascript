@@ -17,11 +17,15 @@ console.log('arr', arr);
 // begin이 음수일 경우 배열의 뒤에서 부터 복사
 // end 생략시 마지막까지 복사
 // 원본 데이터 유지
-var arr2 = arr.slice(1, 3);
-var arr2 = arr.slice(-3, -1);
-var arr2 = arr.slice(2);
-var arr2 = arr.slice(2);
-var arr2 = arr.slice(); //전체복사
+
+// TODO: var변수는 호이스팅이 일어나기 때문에 변수는 한번만 선언하는 것이 좋다
+var arr2;
+
+arr2 = arr.slice(1, 3);
+arr2 = arr.slice(-3, -1);
+arr2 = arr.slice(2);
+arr2 = arr.slice(2);
+arr2 = arr.slice(); //전체복사
 
 console.log('arr', arr);
 console.log('arr2', arr2);
