@@ -27,5 +27,13 @@ var numbers = [10, 20];
 sum(...numbers); //30
 
 // 배열 결합
+var arr1 = [100, 200];
+var arr2 = [300, 400, 500];
+var arr3 = [...arr1, ...arr2];
+console.log(arr3);
 
 // 객체 결합
+var obj1 = { _id: 1, title: 'Javascript 공부', done: false };
+var obj2 = { _id: 2, title: '열심히 공부해야지!', date: '2023-10-25' };
+var obj3 = { ...obj1, ...obj2 };
+console.log(obj3);
