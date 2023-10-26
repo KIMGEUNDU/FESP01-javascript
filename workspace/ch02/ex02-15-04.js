@@ -5,13 +5,15 @@ var counter = {
   visit: function () {
     // 방문자를 한명 증가시킨다.
     this.count++; //this = counter
-    var visit2 = function () {
-      this.count++; //this = window
+    var visitN = function (n) {
+      this.count += n; //this = counter
     };
-    visit2();
+    var visit3 = visitN.bind(this, 3); //this = counter
+    visit3();
+    visit3();
   },
 };
 
 counter.visit();
 counter.visit();
-console.log('합계', counter.count);
+console.log('합계', counter.count, count);
