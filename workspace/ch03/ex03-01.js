@@ -14,6 +14,8 @@ Score.prototype.avg = function () {
   return this.sum() / 2;
 };
 
+// 기본적으로 length는 있지만 만들어서 사용할 수 있다.
+
 var s1 = new Score(100, 90);
 var s2 = new Score(80, 70);
 

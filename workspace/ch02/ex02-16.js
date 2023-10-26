@@ -23,9 +23,10 @@ function smallest(nums) {
   // return min;
 
   // 마지막 방법1
-  return Math.min.apply(this, nums);
+  // return Math.min.apply(this, nums);
   // 마지막 방법2
   // return Math.min(...nums)
+  return nums.min();
 }
 
 console.log(smallest([10, 100])); // 10
