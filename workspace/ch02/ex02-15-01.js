@@ -1,6 +1,7 @@
 // ex02-15.js 복사
 // this를 변수에 저장해두기
 // 1. 일반함수 호출에서 this는 window 객체를 가리킨다.
+// TODO: closure 단원
 var count = 0;
 var counter = {
   count: 0,
