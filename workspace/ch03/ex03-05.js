@@ -27,8 +27,17 @@ function College(kor, eng) {
 }
 
 // College가 HighSchool을 상속받는다.
-College.prototype = new HighSchool();
-College.prototype.constructor = College;
+inherite(HighSchool, College);
+
+function inherite(Parent, Child) {
+  // let F = function () {};
+  // F.prototype = Parent.prototype;
+  // Child.prototype = new F();
+
+  // Child.prototype = new F(); 아래의 코드랑 동일하다
+  Child.prototype = Object.create(Parent.prototype);
+  Child.prototype.constructor = Child;
+}
 
 // 학점 계산 메서드
 College.prototype.grade = function () {
