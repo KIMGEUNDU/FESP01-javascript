@@ -12,6 +12,9 @@ var counter = {
       this.count++; //this = counter
     };
     visit2.call(this);
+
+    // 이것도 가능, 하지만 좋은 방법은 아님
+    // visit2.call(counter)
   },
 };
 
