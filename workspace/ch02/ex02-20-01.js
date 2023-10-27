@@ -53,6 +53,8 @@ var reaminCount = todolist.reduce(function (arr, cur) {
   return !cur.done ? (arr += 1) : (arr += 0);
 }, 0);
 
+// var reaminCount = todolist.reduce((acc, cur)=> acc + cur.done ? 0 : 1,0)
+
 console.log('reduce() 남은 할일 수', reaminCount);
 
 // find() _id=2인 할일
@@ -69,6 +71,9 @@ var todoIndex = todolist.find(function (v) {
   return v._id === 3;
 });
 
+//var todoIndex = todolist.indexOf(todolist.find((todo)=>todo._id===3))
+//var todoIndex = todolist.findIndex((todo)=>todo._id === 3)
+
 todoIndex = todolist.indexOf(todoIndex);
 
 console.log('find() _id=3인 할일의 index', todoIndex);
@@ -82,10 +87,14 @@ var hasTodo = todolist.some(function (v) {
   }
 });
 
+//var hasTodo = todolist.some(todo => !todo.done)
+
 console.log('some() 남은 할일이 하나라도 있는가?', hasTodo);
 
 // every() 할일이 모두 완료 되었는가?
 var busy = todolist.every(function (v) {
   return v.done;
 });
+
+//var busy = todolist.every(todo => todo.done)
 console.log('every() 할일이 모두 완료 되었는가?', busy);
