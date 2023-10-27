@@ -45,12 +45,26 @@
         // console.log('btn-2 클릭', this);
 
         // 마지막에 우유 추가
+        var newLi = document.createElement('li')
+        var newTxt = document.createTextNode('우유')
+        newLi.appendChild(newTxt)
+        var purchases = document.querySelector('#purchases')
+        purchases.appendChild(newLi)
       })
 
       btn3.addEventListener('click', () => {
         // console.log('btn-3 클릭');
 
         // 첫번째 삭제
+        var list = document.querySelectorAll('.list')
+
+        // 유사배열이라서 배열 메소드 사용 못함
+        for (let i = 0; i < list.length; i++) {
+          var firstLi = list[i].firstElementChild
+          if (firstLi) {
+            firstLi.remove()
+          }
+        }
       })
     })
   </script>
