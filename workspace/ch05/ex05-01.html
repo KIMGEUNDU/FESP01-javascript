@@ -1,29 +1,79 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>쇼핑목록</title>
-<script>
-  
-</script>
-</head>
-<body>
-	<h1>쇼핑 목록(DOM 표준 API 이용)</h1>
-	<button>두번째 영화 찾기</button>
-	<button>마지막에 우유 추가</button>
-	<button>첫번째 삭제</button>
 
-	<p title="mart">마트에서 사야할 목록</p>
-	<ul id="purchases" class="list">
-		<li>두부</li>
-		<li>계란</li>
-		<li>라면</li>
-	</ul>
-	<p>보고싶은 영화 목록</p>
-	<ul id="movies" class="list">
-		<li>어벤져스</li>
-		<li>다크나이트</li>
-		<li>미션임파서블</li>
-	</ul>
+<head>
+  <meta charset="UTF-8">
+  <title>쇼핑목록</title>
+  <script>
+    window.onload = function () {
+      var ul1 = document.getElementById('purchases')
+
+      console.log(ul1.childNodes); //줄바꿈까지 해서 자식노드는 7개
+
+      var ul2 = document.getElementById('movies')
+
+      console.log(ul2.childNodes); //전체 싹 다 붙이면 자식노드는 3개가 나온다. li만
+    }
+
+    // 랜더링 후 실행 방법
+    window.addEventListener('DOMContentLoaded', function () {
+      // 옛날방식, 태그명으로 꺼내기
+      // var btn1 = document.getElementsByTagName('button')[0]
+
+      // 최신방식
+      var btn1 = document.querySelector('button')
+      var btn2 = btn1.nextElementSibling
+      var btn3 = btn2.nextElementSibling
+
+      btn1.addEventListener('click', (e) => {
+        // console.log('btn-1 클릭', e.clientX, e.clientY);
+
+        // 두번째 영화 찾기
+        var movies = document.querySelector('#movies')
+        var firstLi = movies.firstElementChild;
+        if (firstLi) {
+          var secondLi = firstLi.nextElementSibling
+          if (secondLi) {
+            var title = secondLi.firstChild.nodeValue
+            console.log(title);
+          }
+        }
+      })
+
+      // 화살표 함수라서 this가 window가 나오는데 함수선언식을 사용하면 this는 button 엘리먼트노드가 나온다.
+      btn2.addEventListener('click', () => {
+        // console.log('btn-2 클릭', this);
+
+        // 마지막에 우유 추가
+      })
+
+      btn3.addEventListener('click', () => {
+        // console.log('btn-3 클릭');
+
+        // 첫번째 삭제
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <h1>쇼핑 목록(DOM 표준 API 이용)</h1>
+  <button>두번째 영화 찾기</button>
+  <button>마지막에 우유 추가</button>
+  <button>첫번째 삭제</button>
+
+  <p title="mart">마트에서 사야할 목록</p>
+  <ul id="purchases" class="list">
+    <li>두부</li>
+    <li>계란</li>
+    <li>라면</li>
+  </ul>
+  <p>보고싶은 영화 목록</p>
+  <ul id="movies" class="list">
+    <li>어벤져스</li>
+    <li>다크나이트</li>
+    <li>미션임파서블</li>
+  </ul>
 </body>
+
 </html>
